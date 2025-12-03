@@ -1,0 +1,8 @@
+{
+  "routes": {
+    "/hostel-Dashboard": {},
+    "/hostel-Dashboard/details": {},
+    "/hostel-Dashboard/edit-form": {},
+    "/hostel-Dashboard/users": {}
+  }
+}
