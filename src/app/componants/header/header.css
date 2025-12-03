@@ -42,7 +42,8 @@
 .hostel-info {
   display: flex;
   flex-direction: column;
-  margin-left: 0; /* default: no margin when toggle is off */
+  margin-left: 0;
+  /* default: no margin when toggle is off */
 }
 
 .hostel-info h2 {
@@ -104,10 +105,11 @@
   gap: 10px;
 }
 
-.profile-box .avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
+.profile-icon {
+  font-size: 42px;
+  /* same size as your previous avatar image */
+  color: #555;
+  /* adjust color if needed */
 }
 
 .profile-text {
@@ -115,9 +117,14 @@
   flex-direction: column;
 }
 
+.profile-text strong {
+  font-size: 14px;
+  color: #222;
+}
+
 .profile-text span {
   font-size: 12px;
-  color: #777;
+  color: #666;
 }
 
 /* Dropdown */
@@ -126,7 +133,8 @@
 }
 
 .dropdown-toggle {
-  background: #674D9F; /* transparent background for header dropdown */
+  background: #674D9F;
+  /* transparent background for header dropdown */
   color: #fff;
   border: 1px solid #674D9F;
   border-radius: 5px;
@@ -140,7 +148,7 @@
   list-style: none;
   padding: 6px 0;
   border-radius: 6px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
   min-width: 140px;
   z-index: 1000;
 }
@@ -152,8 +160,11 @@
 }
 
 /* Divider between the two header-content rows */
-.header-content + .header-content {
-  border-top: 1px solid #3a2d2d; /* 1px divider */
-  margin-top: 8px; /* space above divider */
-  padding-top: 12px; /* space below divider */
+.header-content+.header-content {
+  border-top: 1px solid #3a2d2d;
+  /* 1px divider */
+  margin-top: 8px;
+  /* space above divider */
+  padding-top: 12px;
+  /* space below divider */
 }

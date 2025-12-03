@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:hostel-Dashboard": "node dist/hostel-Dashboard/server/server.mjs"
+    "serve:ssr:hostel-Dashboard": "node dist/hostel-Dashboard/server/server.mjs",
+    "predeploy": "ng build --configuration=github-pages --base-href /hostel-Dashboard/",
+    "deploy": "gh-pages -d dist/hostel-Dashboard/browser"
   },
   "prettier": {
     "printWidth": 100,
@@ -35,6 +37,8 @@
     "@ng-icons/material-icons": "^33.0.0",
     "angular-icons": "^1.0.11",
     "express": "^5.1.0",
+    "gh-pages": "^6.3.0",
+    "lite-server": "^2.6.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
