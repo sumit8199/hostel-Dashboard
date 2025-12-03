@@ -30,7 +30,7 @@
         </div>
         <div class="divider"></div>
         <div class="cards" #cardsContainer>
-            @for(u of userCards; track $index){
+            @for(u of userCards(); track $index){
             <div class="card">
                 <div class="card-top">
                     <span class="role">{{ u.role }}</span>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="info">
                     <h1 class="name">{{ u.name }}</h1>
-                    <div class="phone">{{ u.phone }}</div>
+                    <div class="phone">{{ formatPhoneNumber(u.phone) }}</div>
                 </div>
                 <button class="view" (click)="viewProfile(u)">View Profile</button>
             </div>

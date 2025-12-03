@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, OnInit, OnDestroy } from '@angular/core';
+import { Component, HostListener, inject, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef, signal } from '@angular/core';
 import { StatCard } from '../../componants/stat-card/stat-card';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user-service';
@@ -12,6 +12,7 @@ import { filter, Subscription } from 'rxjs';
   imports: [CommonModule, StatCard, RouterModule],
   templateUrl: './user.html',
   styleUrl: './user.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class User implements OnInit, OnDestroy {
   private userService = inject(UserService);
@@ -26,7 +27,7 @@ export class User implements OnInit, OnDestroy {
   filters = ['All', 'Active', 'In-Active', 'Left Out'];
   selectedFilter: string = 'All';
 
-  userCards: Array<{ role: string; name: string; id: number; phone: string; active: boolean }> = [];
+  userCards = signal<Array<{ role: string; name: string; id: number; phone: string; active: boolean }>>([]);
   pageSize = 100; // show many cards without pagination
   enableInfiniteScroll = false; // keep disabled unless needed
   currentPage = 1;             // restore for internal state
@@ -34,6 +35,8 @@ export class User implements OnInit, OnDestroy {
   hasMore = false;             // no more pages when pagination removed
 
   constructor() { }
+
+  private cdr = inject(ChangeDetectorRef);
 
   ngOnInit() {
     // Load cards initially
@@ -63,6 +66,27 @@ export class User implements OnInit, OnDestroy {
     }
   }
 
+  public formatPhoneNumber(value: string | number): string {
+    if (!value) return '';
+    let str = value.toString().trim();
+    str = str.replace(/(ext\.?|x)\s*\d+$/i, '').trim();
+    let digits = str.replace(/\D/g, '');
+    if (digits.length === 10) {
+      return `(${digits.substring(0, 3)}) ${digits.substring(3, 6)}-${digits.substring(6)}`;
+    }
+
+    if (digits.length === 11 && digits.startsWith('1')) {
+      return `+1 (${digits.substring(1, 4)}) ${digits.substring(4, 7)}-${digits.substring(7)}`;
+    }
+
+    if (digits.length === 12 && digits.startsWith('91')) {
+      const p = digits.substring(2);
+      return `+91 ${p.substring(0, 5)} ${p.substring(5)}`;
+    }
+    return digits;
+  }
+
+
   loadPage(page: number) {
     if (this.isLoading) return;
     this.isLoading = true;
@@ -72,13 +96,14 @@ export class User implements OnInit, OnDestroy {
         role: 'ADMIN 01',
         name: u.name ?? 'Unknown',
         id: u.id ?? 0,
-        phone: u.phone ?? '',
+        phone: u.phone || '9876543210',
         active: i !== 3
       }));
-      this.userCards = newUsers;
+      this.userCards.set(newUsers);
       this.currentPage = 1;
       this.hasMore = false;
       this.isLoading = false;
+      this.cdr.markForCheck();
     });
   }
 
@@ -127,5 +152,13 @@ export class User implements OnInit, OnDestroy {
 
   viewProfile(u: { id: number; name?: string; phone?: string; active?: boolean; role?: string }) {
     this.router.navigate(['/details'], { state: { user: u } });
+  }
+
+  deleteUser(u: { id: number }) {
+    if (confirm('Are you sure you want to delete this user?')) {
+      this.userCards.update(cards => cards.filter(c => c.id !== u.id));
+      // TODO: Call API to delete user
+      // this.userService.deleteUser(u.id).subscribe();
+    }
   }
 }

@@ -22,7 +22,8 @@
   align-items: center;
   gap: 6px;
   padding: 8px 12px;
-  background: transparent; /* transparent background for header/user dropdown toggle */
+  background: transparent;
+  /* transparent background for header/user dropdown toggle */
   color: black;
   border: none;
 }
@@ -88,9 +89,9 @@
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 16px;
   padding: 16px 8px;
-  overflow-y: auto;        /* enable internal scroll */
-  max-height: 70vh;        /* constrain height so overflow can occur */
-  flex: 1 1 auto;          /* allow grid to take available space */
+  overflow-y: auto;
+  max-height: 70vh;
+  flex: 1 1 auto;
 }
 
 .card {
@@ -212,8 +213,8 @@
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(36, 25, 63, 0.06);
   padding: 12px;
-  display: flex;            /* make cards area stretch */
-  flex-direction: column;   /* stack header-controls, divider, cards */
+  display: flex;
+  flex-direction: column;
 }
 
 .user-content .divider {
@@ -259,15 +260,15 @@
 }
 
 @media (max-width: 500px) {
-  /* On very small screens, make filters horizontally scrollable */
   .filters {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     flex-wrap: nowrap;
     gap: 6px;
-    padding-bottom: 6px; /* space for scrollbar */
+    padding-bottom: 6px;
   }
+
   .filters button {
     flex: 0 0 auto;
   }

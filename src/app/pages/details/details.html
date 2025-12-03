@@ -27,7 +27,9 @@
   <div class="card">
     <div class="card-header">
       <div class="avatar">
-        <img src="assets/icons/avatar.png" alt="avatar" />
+        <span class="material-symbols-outlined profile-icon">
+          account_circle
+        </span>
       </div>
       <div class="info">
         <div class="name">{{ user?.name }}</div>
@@ -46,7 +48,7 @@
       <div class="field">
         <span class="icon material-symbols-outlined">call</span>
         <span class="label">Phone No</span>
-        <span class="value">{{ user?.phone || '+91 12345 67890' }}</span>
+        <span class="value">{{ formatPhoneNumber(user?.phone) || '+91 12345 67890' }}</span>
       </div>
       <div class="field">
         <span class="icon material-symbols-outlined">mail</span>

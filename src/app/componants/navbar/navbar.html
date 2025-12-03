@@ -1,11 +1,11 @@
 <div class="mobile-header">
-  <span class="menu-btn material-symbols-outlined" (click)="toggleSidebar()">menu</span>
-  <img style="width: 40px; height: 40px;" src="icons/ca6d7abfeb24c897b0fd50503907b2fd1c0833e3.png" alt="logo" />
-  <span class="app-title">Hostel Dashboard</span>
+    <span class="menu-btn material-symbols-outlined" (click)="toggleSidebar()">menu</span>
+    <img style="width: 40px; height: 40px;" src="icons/ca6d7abfeb24c897b0fd50503907b2fd1c0833e3.png" alt="logo" />
+    <span class="app-title">Hostel Dashboard</span>
 </div>
 
 @if (!sidebarOpen) {
-  <span class="desktop-open-btn material-symbols-outlined" (click)="toggleSidebar()">left_panel_open</span>
+<span class="desktop-open-btn material-symbols-outlined" (click)="toggleSidebar()">left_panel_open</span>
 }
 
 <nav class="sidebar" [class.open]="sidebarOpen" [class.closed]="!sidebarOpen">

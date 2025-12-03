@@ -101,10 +101,12 @@
     background: #f8f9fb;
 }
 
-.avatar img {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
+.profile-icon {
+    display: block;
+    margin: 10px auto;
+    font-size: 42px;
+    color: #555;
+    text-align: center;
 }
 
 .info .name {
