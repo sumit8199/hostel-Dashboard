@@ -1,2 +1,0 @@
-export default `*{box-sizing:border-box}html,body{margin:0;padding:0;width:100%;height:100%;overflow-x:hidden;overflow-y:hidden;font-family:Quicksand,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Liberation Sans,sans-serif}app-root{display:block;margin:0;padding:0}button,input,select,textarea{font-family:inherit}
-`;
