@@ -30,7 +30,7 @@ export class Details {
   goBack() {
     // Navigate back to users page
     // We use replaceUrl to ensure proper navigation state
-    this.router.navigate(['/users'], { replaceUrl: false });
+    this.router.navigate(['/users']);
   }
 
   toggleExport() { this.exportOpen = !this.exportOpen; }

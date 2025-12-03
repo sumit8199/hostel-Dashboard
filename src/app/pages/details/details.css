@@ -69,11 +69,16 @@
     gap: 4px;
     min-width: 140px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+    z-index: 2;
 }
 
 .dropdown .item {
     padding: 8px;
     border-radius: 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .dropdown .item:hover {
@@ -191,5 +196,16 @@ input:checked+.slider:before {
     margin-bottom: 8px;
 }
 
-.upload .box { height: 120px; border: 1px dashed #aaa; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
-.upload-icon { font-size: 40px; color: #6f50ff; }
+.upload .box {
+    height: 120px;
+    border: 1px dashed #aaa;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-icon {
+    font-size: 40px;
+    color: #6f50ff;
+}
