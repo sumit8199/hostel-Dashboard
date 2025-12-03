@@ -1,0 +1,193 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    color: white;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    overflow-y: auto;
+    z-index: 999;
+    left: 0;
+    transition: left 0.3s ease;
+}
+
+.sidebar .close-btn {
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.close-btn span{
+    background-color: transparent; /* make toggle background transparent */
+    color: gray;
+}
+
+@media (min-width: 769px) {
+  .sidebar .close-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-header { display: flex; }
+  .sidebar { left: -260px; }
+  .sidebar.open { left: 0; }
+  /* .sidebar .close-btn { display: block; } */
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 120px;
+}
+
+.menu {
+    background: #674D9F;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top-right-radius: 16px;
+}
+
+.menu li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.menu li:first-child {
+    margin-top: 15px;
+}
+
+
+.menu li:hover {
+    background: #fff;
+    color: black;
+}
+
+.menu li.active {
+    background: #fff;
+    border-left: 4px solid #fff;
+}
+
+.menu i {
+    font-size: 20px;
+}
+
+/* MOBILE HEADER (hidden on desktop) */
+.mobile-header {
+    display: none;
+    height: 56px;
+    background: #674D9F;
+    color: white;
+    padding: 0 15px;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-header img {
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.mobile-header .menu-btn {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.mobile-header .app-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .mobile-header {
+        display: flex;
+    }
+
+    .sidebar {
+        left: -260px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    /* .sidebar .close-btn {
+        display: block;
+    } */
+}
+
+/* Show vertical close icon on desktop */
+@media (min-width: 769px) {
+  .sidebar .close-btn {
+    display: block;
+  }
+}
+
+/* Keep mobile behavior intact */
+@media (max-width: 768px) {
+  .sidebar .close-btn {
+    display: block;
+    transform: none;
+  }
+}
+
+/* Allow closing sidebar on desktop as well */
+.sidebar.closed {
+  left: -260px;
+}
+
+/* Scrollbar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+
+/* Desktop open button (hidden on mobile) */
+.desktop-open-btn {
+  position: fixed;
+  top: 42px;
+  left: 5px;
+  z-index: 1100;
+  background: white; /* transparent background */
+  color: #674D9F; /* brand color for icon/text on transparent */
+  border-radius: 8px;
+  padding: 6px 8px;
+  box-shadow: none; /* remove shadow to keep it clean */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Hide desktop open button on mobile when mobile header is used */ 
+@media (mix-width: 768px) {
+  .desktop-open-btn { display: inline-flex; }
+}
+
+/* Show as hamburger on mobile */
+@media (max-width: 768px) {
+  .desktop-open-btn::before { content: "menu"; font-family: 'Material Symbols Outlined'; margin-right: 6px; }
+  .desktop-open-btn { font-size: 0; padding: 8px; border-radius: 50%; }
+} 
+
+/* Sidebar positioning on mobile (no mobile header) */
+@media (max-width: 768px) {
+  .sidebar { top: 0; height: 100vh; }
+}

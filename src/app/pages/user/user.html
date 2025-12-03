@@ -1,0 +1,63 @@
+<div class="user">
+    <app-stat-card></app-stat-card>
+
+    <div class="user-content">
+        <div class="header-controls">
+            <div class="dropdown" [class.open]="dropdownOpen">
+                <button class="dropdown-toggle" (click)="toggleDropdown()">
+                    {{ selectedCategory }}
+                    <span class="chev">▼</span>
+                </button>
+                @if(dropdownOpen){
+                <div class="dropdown-menu">
+                    @for (c of categories; track $index) {
+                    <button class="dropdown-item" (click)="selectCategory(c)">{{ c }}</button>
+                    }
+                </div>
+                }
+
+            </div>
+
+            <div class="filters">
+                @for (f of filters; track $index) {
+                <button (click)="selectFilter(f)">{{ f }}</button>
+                }
+            </div>
+
+            <div class="search">
+                <span class="material-symbols-outlined">search</span>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="cards" #cardsContainer>
+            @for(u of userCards; track $index){
+            <div class="card">
+                <div class="card-top">
+                    <span class="role">{{ u.role }}</span>
+                    <button class="status" [class.on]="u.active" [class.off]="!u.active" (click)="toggleStatus(u)"
+                        (keydown)="onToggleKey($event, u)" role="switch" [attr.aria-checked]="u.active"
+                        aria-label="Toggle active status">
+                    </button>
+                </div>
+                <div class="avatar-ring">
+                    <img class="avatar-img" src="/src/assets/icons/avatar.png" alt="User avatar" />
+                </div>
+                <div class="info">
+                    <h1 class="name">{{ u.name }}</h1>
+                    <div class="phone">{{ u.phone }}</div>
+                </div>
+                <button class="view" (click)="viewProfile(u)">View Profile</button>
+            </div>
+            }
+        </div>
+
+        <!-- Pagination controls -->
+        <!-- Removed per request -->
+        <!-- <div class="pagination">
+          <button class="page-btn" (click)="prevPage()" [disabled]="isLoading || currentPage <= 1">Prev</button>
+          <span class="page-info">Page {{ currentPage }}</span>
+          <button class="page-btn" (click)="nextPage()" [disabled]="isLoading || !hasMore">Next</button>
+        </div> -->
+    </div>
+    <div #scrollAnchor class="scroll-anchor"></div>
+</div>

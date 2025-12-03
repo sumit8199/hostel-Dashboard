@@ -1,0 +1,77 @@
+<div class="detail">
+  <div class="tabs">
+    <button class="tab active">Admin Details</button>
+    <button class="tab">Upload KYC Documents</button>
+    <button class="tab">In-disciplinary Actions</button>
+  </div>
+
+  <button class="back" (click)="goBack()">
+    <span class="material-symbols-outlined">arrow_back</span>
+    Back
+  </button>
+
+  <div class="toolbar">
+    <button class="btn">Edit</button>
+    <button class="btn warn">Inactive</button>
+    <div class="dropdown" [class.open]="exportOpen">
+      <button class="btn" (click)="toggleExport()">Export <span class="chev">▼</span></button>
+      @if (exportOpen) {
+      <div class="menu">
+        <button class="item" (click)="closeExport()">Report</button>
+        <button class="item" (click)="closeExport()">Details</button>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="avatar">
+        <img src="/src/assets/icons/avtar.png" alt="avatar" />
+      </div>
+      <div class="info">
+        <div class="name">{{ user?.name }}</div>
+        <div class="id">{{ user?.id }}</div>
+      </div>
+      <div class="status">
+        <span>Off/On</span>
+        <label class="switch">
+          <input type="checkbox" [checked]="active" (change)="toggleActive()" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="fields">
+      <div class="field">
+        <span class="icon material-symbols-outlined">call</span>
+        <span class="label">Phone No</span>
+        <span class="value">{{ user?.phone || '+91 12345 67890' }}</span>
+      </div>
+      <div class="field">
+        <span class="icon material-symbols-outlined">mail</span>
+        <span class="label">Email ID</span>
+        <span class="value">{{ user?.email || 'user@example.com' }}</span>
+      </div>
+      <div class="field">
+        <span class="icon material-symbols-outlined">apartment</span>
+        <span class="label">Number of Hostel Assigned</span>
+        <span class="value">06</span>
+      </div>
+      <div class="field">
+        <span class="icon material-symbols-outlined">location_city</span>
+        <span class="label">Names of Hostels Assigned</span>
+        <span class="value">Shradha park | Saikheda | GHRU</span>
+      </div>
+      <div class="field">
+        <span class="icon material-symbols-outlined">home</span>
+        <span class="label">Permanent Address</span>
+        <span class="value">22/D, Shankar Nagar, Nagpur</span>
+      </div>
+
+      <div class="upload">
+        <div class="label">Upload KYC Documents</div>
+      </div>
+    </div>
+  </div>
+</div>

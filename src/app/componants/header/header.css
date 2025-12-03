@@ -1,0 +1,159 @@
+/* Make header sticky below navbar open button and respect content padding */
+.header-container {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+  font-family: 'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adjust search width on smaller viewports */
+@media (max-width: 900px) {
+  .header-search {
+    max-width: 240px;
+    margin: 0 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-search {
+    display: none;
+  }
+}
+
+.hostel-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0; /* default: no margin when toggle is off */
+}
+
+.hostel-info h2 {
+  margin: 0;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+}
+
+.hostel-info p {
+  margin: 0;
+  font-size: 12px;
+  color: #777;
+  font-family: 'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+}
+
+.header-search {
+  flex: 1;
+  max-width: 350px;
+  margin: 0 40px;
+  position: relative;
+  background-color: #F4BE3033;
+}
+
+.header-search input {
+  width: 100%;
+  padding: 8px 38px 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #F4BE3033;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 18px;
+  color: #777;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-box .avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-text span {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: #674D9F; /* transparent background for header dropdown */
+  color: #fff;
+  border: 1px solid #674D9F;
+  border-radius: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  background: white;
+  list-style: none;
+  padding: 6px 0;
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  min-width: 140px;
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Divider between the two header-content rows */
+.header-content + .header-content {
+  border-top: 1px solid #3a2d2d; /* 1px divider */
+  margin-top: 8px; /* space above divider */
+  padding-top: 12px; /* space below divider */
+}

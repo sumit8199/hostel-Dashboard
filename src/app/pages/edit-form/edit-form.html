@@ -1,0 +1,131 @@
+<div class="edit-form-container">
+    <!-- Back Button -->
+    <button class="back-btn" [routerLink]="['/users']">
+        <span class="arrow">←</span> Back
+    </button>
+
+    <div class="form-wrapper">
+        <!-- Sidebar with Steps -->
+        <div class="sidebar">
+            <div class="step completed">
+                <div class="step-indicator">
+                    <span class="check-icon">✓</span>
+                </div>
+                <div class="step-label">Personal Details</div>
+            </div>
+
+            <div class="step active">
+                <div class="step-indicator">
+                    <span class="dot"></span>
+                </div>
+                <div class="step-label">KYC Documents</div>
+            </div>
+
+            <div class="step">
+                <div class="step-indicator">
+                    <span class="empty-circle"></span>
+                </div>
+                <div class="step-label">Vehicle Details</div>
+            </div>
+        </div>
+
+        <!-- Main Form Area -->
+        <div class="form-content">
+            <div class="form-header">
+                <h2 class="form-title">Create Staff</h2>
+                <div class="avatar-container">
+                    <img src="/src/assets/icons/avatar.png" alt="Profile Avatar" class="profile-avatar" />
+                </div>
+            </div>
+
+            <form class="staff-form">
+                <!-- Your Role -->
+                <div class="form-group">
+                    <label for="role">Your Role</label>
+                    <select id="role" class="form-control">
+                        <option value="">Select Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="staff">Staff</option>
+                        <option value="warden">Warden</option>
+                    </select>
+                </div>
+
+                <!-- User Name -->
+                <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username" class="form-control" placeholder="Type Here" />
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" class="form-control" placeholder="Type Here" />
+                        <span class="password-toggle">👁</span>
+                    </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+91" />
+                </div>
+
+                <!-- Date of Birth and Blood Group -->
+                <div class="form-row">
+                    <div class="form-group flex-1">
+                        <label for="dob">Date of Birth</label>
+                        <input type="text" id="dob" class="form-control" placeholder="DD/MM/YY" />
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="bloodgroup">Blood Group</label>
+                        <input type="text" id="bloodgroup" class="form-control" placeholder="" />
+                    </div>
+                </div>
+
+                <!-- Joining Date -->
+                <div class="form-group">
+                    <label for="joiningdate">Joining Date</label>
+                    <input type="text" id="joiningdate" class="form-control" placeholder="DD/MM/YY" />
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="gender-options">
+                        <button type="button" class="gender-btn">
+                            <span class="gender-icon">♀</span>
+                            <span>Female</span>
+                        </button>
+                        <button type="button" class="gender-btn">
+                            <span class="gender-icon">♂</span>
+                            <span>Male</span>
+                        </button>
+                        <button type="button" class="gender-btn">
+                            <span class="gender-icon">⚥</span>
+                            <span>Other</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Father Name -->
+                <div class="form-group">
+                    <label for="fathername">Father Name</label>
+                    <input type="text" id="fathername" class="form-control optional-field" placeholder="Optional" />
+                </div>
+
+                <!-- Mother Name -->
+                <div class="form-group">
+                    <label for="mothername">Mother Name</label>
+                    <input type="text" id="mothername" class="form-control optional-field" placeholder="Optional" />
+                </div>
+
+                <!-- Spouse Name -->
+                <div class="form-group">
+                    <label for="spousename">Spouse Name</label>
+                    <input type="text" id="spousename" class="form-control optional-field" placeholder="Optional" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<header class="header-container">
+
+    <div class="header-content">
+        <div class="hostel-info">
+            <h2>GHRCE BOYS HOSTEL</h2>
+            <p>Shradha Park, Nagpur</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="header-search">
+            <input type="text" placeholder="Search Hostel" />
+            <span class="material-symbols-outlined search-icon">search</span>
+        </div>
+
+        <!-- Right Section -->
+        <div class="header-right">
+
+            <!-- Notification -->
+            <button class="icon-btn">
+                <i class="ph-bell"></i>
+            </button>
+
+            <!-- Profile -->
+            <div class="profile-box">
+                <img src="/src/assets/icons/avatar.png" class="avatar" alt="Profile" />
+                <div class="profile-text">
+                    <strong>Vaibhav</strong>
+                    <span>Hostel Warden</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-content">
+
+        <div class="header-title">
+            <h2 style="margin: 0; font-size: 21px; color: #674D9F; font-weight: 700; font-style: bold;">User Management
+            </h2>
+            <p style="margin: 0;">Hi, Welcome to the User Management</p>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-toggle" (click)="toggleDropdown()">Add Users ▾</button>
+
+            @if (showDropdown) {
+            <ul class="dropdown-menu">
+                <li [routerLink]="['/edit-form']">Add Staff</li>
+                <li [routerLink]="['/edit-form']">Add Student</li>
+            </ul>
+            }
+        </div>
+    </div>
+
+</header>
