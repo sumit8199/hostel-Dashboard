@@ -1,0 +1,8 @@
+{
+  "routes": {
+    "/": {},
+    "/details": {},
+    "/edit-form": {},
+    "/users": {}
+  }
+}
